@@ -23,6 +23,8 @@ public void OnPluginStart()
 
 public void OnClientAuthorized(int client)
 {
+	if(IsFakeClient(client) || IsClientSourceTV(client))
+		return;
     char clientnameconnected[512];
     char clientid[512];
     char tempoldname[512];

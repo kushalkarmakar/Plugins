@@ -71,7 +71,7 @@ public Action cmd_ign(int client, int args)
 {
     if (!client)
     {
-    	ReplyToCommand("You cannot run this command through the server console.");
+    	ReplyToCommand(client, "You cannot run this command through the server console.");
     }
     else if (args < 1)
     {

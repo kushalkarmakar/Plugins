@@ -69,11 +69,15 @@ public void OnClientAuthorized(int client)
 
 public Action cmd_ign(int client, int args)
 {
-    if (args < 1)
+    if (!client)
+    {
+    	ReplyToCommand(client, "You cannot run this command through the server console.");
+    }
+    else if (args < 1)
     {
         CPrintToChat(client, "{lime}[{orange}IGN{lime}] {indigo}Invalid Usage .Type {cyan}!ign <playername>");
     }
-    if (args == 1)
+    else if (args == 1)
     {
         //Initial Action
         char TargetString[100]; 
@@ -122,8 +126,9 @@ public Action cmd_ign(int client, int args)
         CPrintToChat(client, "{lime}\x09IP:{black} %s\n{lime}\x09\x09Adminship:{black} %s", ip, clienthasadmin);
         CPrintToChat(client, "{darkblue}*********************************");
     }
-    if (args > 1)
+    else if (args > 1)
     {
         CPrintToChat(client, "{black}[{lime}SM{black}]{lime}Invalid Usage.");
     }
+    return Plugin_Handled;
 } 
